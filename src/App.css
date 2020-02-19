@@ -1,0 +1,126 @@
+* {
+    font-family:'Roboto',sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 14px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 5px 5px 6px rgba(0, 0, 0, 0.795);
+    -moz-box-shadow: inset 5px 5px 6px rgba(0, 0, 0, 0.795);
+    box-shadow: inset 5px 5px 6px rgba(0, 0, 0, 0.795);
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgb(255, 255, 255);
+    -moz-box-shadow: inset 0 0 6px rgb(255, 255, 255);
+    box-shadow: inset 0 0 6px rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.main-container {
+    background: url(./images/SnowdownPoros.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.dash-text {
+    color: rgb(119, 128, 0);
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.searchbar-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.searchbar {
+    border-radius: 10px;
+    width: 50%;
+    margin-right: 20px;
+    font-size: 16px;
+    color: white;
+    border: 5px solid rgb(145, 145, 145); 
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.192);
+    transition: background 0.5s, border-color 0.5s;
+    outline: none;
+}
+
+.searchbar:focus {
+    background: rgba(105, 105, 105, 0.192);
+    border-color: rgb(216, 216, 216)
+}
+
+.searchbutton {
+    border-radius: 5px;
+    border: 0.1em solid #fff;
+    background-color: rgba(0, 0, 0, 0.144);
+    color: #fff;
+    outline: none;
+    transition: color 0.5s, border-color 0.5s, background-color 0.5s, color 0.5s;
+}
+
+.searchbutton:hover {
+    color: #bbb;
+    border-color: rgb(61, 61, 61);
+    background-color: rgba(255, 255, 255, 0.589);
+    color: black;
+}
+
+.dashboard-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+.ranking-container {
+    height: 60%;
+    width: 80%;
+    overflow-y:auto;
+}
+
+table, th, td {
+    text-align: center;
+    border-radius: 7px;
+    box-shadow: inset 0 0 6px rgba(80, 80, 80, 0.5);
+}
+
+table {
+    width: 100%;
+    background-color: rgb(83, 80, 80);
+    border-spacing: 7px;
+}
+
+th {
+    height: 50px;
+    background-color: rgb(206, 206, 206);
+}
+
+td {
+    height: 40px;
+    color: rgb(212, 212, 212);
+    background-color: rgba(32, 20, 85, 0.411);
+    transition: background-color 1s;
+}
+
+td:hover, tr:hover {
+    background-color: white;
+    color: black;
+}

@@ -27,6 +27,6 @@ app.get('/profile', async (req, res) => {
 
 })
 
-app.listen(8002, function() {
+app.listen(8002, () => {
     console.log('Listening on port 8002')
 })
