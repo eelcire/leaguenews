@@ -9,7 +9,7 @@ export class Dashboard extends Component {
             <div className="main-container">
                 <div className="header-container">
                     <h1 className="dash-text">Personally curated League dashboard</h1>
-                    <SearchBar />
+                    <SearchBar handleClick={this.handleClick} />
                 </div>
                 <div className="dashboard-container">
                     <Ranking />

@@ -11,20 +11,23 @@ app.get('/', (req, res) => {
 })
 
 app.get('/ranking', async (req, res) => {
-    let data
     await axios.get(`https://na1.api.riotgames.com/lol/league-exp/v4/entries/RANKED_SOLO_5x5/CHALLENGER/I?page=1&api_key=${process.env.api_key}`)
-        .then(res => data = res.data)
-        .catch(err => console.log(err))
-    res.status(200).json(data)
+        .then(response => {
+            return res.status(200).json(response.data)
+        })
+        .catch(err => {
+            return res.status(err.response.status).json(err)
+        })
 })
 
-app.get('/profile', async (req, res) => {
-    let data
-    await axios.get(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/kitcatpattywhack?api_key=${process.env.api_key}`)
-        .then(res => data = res.data)
-        .catch(err => console.log(error))
-    res.status(200).json(data)
-
+app.get('/profile/:summonerName', async (req, res) => {
+    await axios.get(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${req.params.summonerName}?api_key=${process.env.api_key}`)
+        .then(response => {
+            return res.status(200).json(response.data)
+        })
+        .catch(err => {
+            return res.status(err.response.status).json(err.response.statusText)
+        })
 })
 
 app.listen(8002, () => {

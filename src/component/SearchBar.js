@@ -1,18 +1,23 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-export default class SearchBar extends Component {
-    handleClick = (event) => {
+import { useHistory } from 'react-router-dom'
+import axios from 'axios'
+
+export default function SearchBar() {
+    const [text, setText] = useState('')
+    
+    let history = useHistory()
+
+    const handleClick = async (event) => {
         event.preventDefault()
-        alert('clicked')
+        await axios.get(`/profile/${text}`).then(res => console.log(res)).catch(err => console.log(err.response))
+        history.push(`/profile/${text}`)
     }
 
-    render() {
-        return (
-            <div className="searchbar-container">
-                <input className="searchbar" placeholder="Summoner Name..." />
-                <button onClick={this.handleClick} className="searchbutton">Search</button>
-            </div>
-        )
-    }
-
+    return (
+        <form className="searchbar-container" onSubmit={handleClick}>
+            <input className="searchbar" onChange={e => setText(e.target.value)} value={text} placeholder="Summoner Name..." />
+            <button className="searchbutton">Search</button>
+        </form>
+    )
 }
